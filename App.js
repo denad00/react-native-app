@@ -1,11 +1,21 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
+  const [name, setName] = useState("shaun")
+
+const clickHandler = () => {
+  setName('chun-li')
+}
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>My name is {name}</Text>
+      <Text></Text>
+      <View style={styles.buttonContainer}>
+        <Button title='update state' onPress={clickHandler}/>
+      </View>
     </View>
   );
 }
@@ -17,4 +27,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buttonContainer: {
+    marginTop: 20
+  }
 });
